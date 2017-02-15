@@ -31,7 +31,8 @@
 
 */
 
-//Speaker task (called in task driverControl)
+
+//SPEAKER FUNCTION
 task speaker_sound(){
 	while(true){
 		playSoundFile("pushSound.wav");
@@ -40,7 +41,7 @@ task speaker_sound(){
 }
 
 
-//Sets drive motors
+//USER CONTROL FUNCTIONS
 void setDriveL(int pwr) {
 	motor[LFPrimary] =
 		motor[LMPrimary] =
@@ -60,7 +61,7 @@ void setDriveR(int pwr) {
 }
 
 
-//Driver control options
+//Driver control modes
 void arcade(int move, int rot){
 	setDriveL(move + rot);
 	setDriveR(move - rot);
@@ -70,6 +71,7 @@ void tank(int lpwr, int rpwr){
 	setDriveL(lpwr);
 	setDriveR(rpwr);
 }
+
 
 //Auton Functions
 void vroomPush(int pwrL, int pwrR, int time){//Goodbye Lennie's amazing code
