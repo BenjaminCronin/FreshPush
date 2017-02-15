@@ -100,6 +100,8 @@ task autonomous(){
 //Task usercontrol
 task usercontrol(){
 	startTask (speaker_sound);//Starts speaker
+	word btn8dLast;
+	bool tankTog = false;
 	int stick[4] = { 0, 0, 0, 0 };//Array for killing motor whine
 	while(true) {
 
@@ -112,6 +114,13 @@ task usercontrol(){
 		}
 
 		//Driver-control
-		arcade(vexRT[Ch2], vexRT[Ch4]); //vroomVroom (usingProperCodingTechnics)
+		if (vexRT[Btn8D] && !btn8dLast)
+			tankTog = !tankTog;
+		btn8dLast = vexRT[Btn8D];
+
+		if(tankTog)
+			tank(vexRT[Ch3], vexRT[Ch2]);
+		else
+			arcade(vexRT[Ch2], vexRT[Ch4]); //vroomVroom (usingProperCodingTechnics)
 	}
 }
