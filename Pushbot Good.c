@@ -90,10 +90,10 @@ void pre_auton(){
 	for(int i = 0; i < 120; i = i + 1) {
 		clearLCDLine(0);
 		displayLCDNumber(0, 1, nAvgBatteryLevel / 1000., 2);
-    wait1Msec(250);
-  	clearLCDLine(1);
-    displayLCDString(1, i % 17, "GO PUSHBOT");
-  }
+		wait1Msec(250);
+  		clearLCDLine(1);
+    		displayLCDString(1, i % 17, "GO PUSHBOT");
+	}
 }
 
 /*
