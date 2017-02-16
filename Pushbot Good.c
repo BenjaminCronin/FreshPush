@@ -86,8 +86,22 @@ void vroomPush(int pwrL, int pwrR, int time){//Goodbye Lennie's amazing code
 
 //Task pre-auton. Do Not Edit
 void pre_auton(){
-
+	bLCDBacklight = true;
+	for(int i = 0; i < 120; i = i + 1) {
+		clearLCDLine(0);
+		displayLCDNumber(0, 1, nAvgBatteryLevel / 1000., 2);
+    wait1Msec(250);
+  	clearLCDLine(1);
+    displayLCDString(1, i % 17, "GO PUSHBOT");
+  }
 }
+
+/*
+
+char goPush[10] = { 'G', 'O', ' ', 'P', 'U', 'S', 'H', 'B', 'O', 'T'}
+
+*/
+
 
 
 //Task auton starts here
