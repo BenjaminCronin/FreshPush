@@ -17,6 +17,8 @@
 #include "Vex_Competition_Includes.c"
 #include "Driver Control Functions.h"
 #include "Autons/LeftAuton.h"
+#include "Autons/RightAuton.h"
+
 /*
 
 *******************************************
@@ -68,7 +70,7 @@ void pre_auton(){
 
 
 //Task auton starts here
-//Auton assumes starting on LEFT SIDE
+//Choose side for Auton
 task autonomous(){
 	leftAuton();
 }
