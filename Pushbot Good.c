@@ -16,6 +16,7 @@
 
 #include "Vex_Competition_Includes.c"
 #include "Driver Control Functions.h"
+#include "Drive Options.h"
 #include "Autons/LeftAuton.h"
 #include "Autons/RightAuton.h"
 
@@ -34,18 +35,6 @@
 *******************************************
 
 */
-
-
-//Driver control modes
-void arcade(int move, int rot){
-	setDriveL(move + rot);
-	setDriveR(move - rot);
-}
-
-void tank(int lpwr, int rpwr){
-	setDriveL(lpwr);
-	setDriveR(rpwr);
-}
 
 
 void pre_auton(){
@@ -70,9 +59,8 @@ void pre_auton(){
 
 
 //Task auton starts here
-//Choose side for Auton
 task autonomous(){
-	leftAuton();
+	leftAuton();//Choose side for Auton
 }
 
 

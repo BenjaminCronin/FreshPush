@@ -9,7 +9,6 @@ void vroomPush(int pwrL, int pwrR, int time){//Goodbye Lennie's amazing code
 }
 
 
-
 void leftAuton(){
 	vroomPush(127, 127, 500);//Claw out
 	vroomPush(-127, -127, 500);// ^
