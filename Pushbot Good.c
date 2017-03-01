@@ -17,6 +17,7 @@
 #include "Vex_Competition_Includes.c"
 #include "Driver Control Functions.h"
 #include "Drive Options.h"
+#include "LCD PreAuton.h"
 #include "Autons/LeftAuton.h"
 #include "Autons/RightAuton.h"
 
@@ -37,25 +38,12 @@
 */
 
 
-void pre_auton(){
-
-}
-
-/* Remove comment section for competition
 
 //Task pre-auton. Do Not Edit
 void pre_auton(){
-	bLCDBacklight = true;
-	for(int i = 0; i < 120; i++) {
-		clearLCDLine(0);
-		displayLCDNumber(0, 1, nAvgBatteryLevel / 1000., 2);
-		wait1Msec(250);
-  	clearLCDLine(1);
-    displayLCDString(1, i % 17, "GO PUSHBOT");
-	}
+	//LCDPreAuton();
 }
 
-*/
 
 
 //Task auton starts here
