@@ -16,7 +16,7 @@ void leftAuton(){
 	vroomPush(-127, -127, 1500);//Back to original position
 	vroomPush(-127, 127, 300);//Turns toward star on left of robit
 	vroomPush(127, 127, 300);//forward to get star
-	vroomPush(127, -127, 250);//turns back towards fence
+	vroomPush(127, -127, 400);//turns back towards fence
 	vroomPush(127, 127, 1700);//forward to shove star under fence
 	for(int p = 0; p < 2; p++){//shoves star under fence 4 times
 		vroomPush(-127, -127, 500);// ^
