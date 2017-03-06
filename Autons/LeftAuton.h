@@ -28,8 +28,8 @@ void leftAuton(){
 	vroomPush(-127, 127, 300);//turns towards fence on other side of field
 	vroomPush(127, 127, 1700);//Forward to shove stars under fence
 	for(int q = 0; q < 4; q++){//Shoves star(s) under fence
-		vroomPush(-127, -127, 500);
-		vroomPush(127, 127, 500);
+		vroomPush(-127, -127, 500);//  ^
+		vroomPush(127, 127, 500);// ^
 	}
 	vroomPush(-127, -127, 1000);//Back to far zone for driver control
 }
