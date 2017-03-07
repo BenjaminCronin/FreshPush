@@ -9,7 +9,7 @@ void vroomPush(int pwrL, int pwrR, int time){//Goodbye Lennie's amazing code
 }
 
 
-void leftAuton(){
+void auton(){
 	vroomPush(127, 127, 500);//Claw out
 	vroomPush(-127, -127, 500);// ^
 	vroomPush(127, 127, 1700);//Shoves preload under fence
