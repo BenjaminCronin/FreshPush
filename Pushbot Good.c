@@ -68,7 +68,7 @@ task usercontrol(){
 		}
 
 		//Driver-control
-		if (vexRT[Btn8D] && !btn8dLast)
+		if (vexRT[Btn8D] && !btn8dLast)//Allows for
 			tankTog = !tankTog;
 		btn8dLast = vexRT[Btn8D];
 
@@ -78,5 +78,3 @@ task usercontrol(){
 			arcade(vexRT[Ch2], vexRT[Ch4]); //vroomVroom (usingProperCodingTechnics)
 	}
 }
-
-//Hey Lennie do you like my amazing coding skilz???
