@@ -54,5 +54,27 @@ task autonomous(){
 
 //Task usercontrol
 task usercontrol(){
-	tank(vexRT[Ch3], vexRT[Ch2]);
+	word btn8dLast;
+	bool tankTog = false;
+	int stick[4] = { 0, 0, 0, 0 };//Array for killing motor whine
+	while(true) {
+
+	//Motor-whine killer
+	for(int i = 0; i < 4; i++) {//Completly ANNIHALATES annoying motor whine (like a bug!)
+		if(fabs(vexRT[i]) > 15)
+			stick[i] = vexRT[i];
+		else
+			stick[i] = 0;
+	}
+
+	//Driver-control
+	if (vexRT[Btn8D] && !btn8dLast)
+		tankTog = !tankTog;
+	btn8dLast = vexRT[Btn8D];
+
+	if(tankTog)
+		tank(vexRT[Ch3], vexRT[Ch2]);
+	else
+		arcade(vexRT[Ch2], vexRT[Ch4]); //vroomVroom (usingProperCodingTechnics)
+	}
 }
