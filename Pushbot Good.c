@@ -18,8 +18,7 @@
 #include "Driver Control Functions.h"
 #include "Drive Options.h"
 #include "LCD PreAuton.h"
-#include "Autons/LeftAuton.h"
-#include "Autons/RightAuton.h"
+#include "Auton.h"
 
 /*
 
@@ -41,7 +40,7 @@
 
 //Task pre-auton. Do Not Edit
 void pre_auton(){
-	//LCDPreAuton();
+	LCDPreAuton();
 }
 
 
