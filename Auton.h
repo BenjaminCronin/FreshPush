@@ -1,7 +1,7 @@
 //Auton Functions
 void vroomPush(int pwrL, int pwrR, int time){//Goodbye Lennie's amazing code
 	setDriveL(pwrL);
-	setDriveR(pwrR);
+	setDriveR(pwrR - 27);
 	wait1Msec(time);
 	setDriveL(0);
 	setDriveR(0);
