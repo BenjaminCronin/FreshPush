@@ -1,7 +1,6 @@
 #pragma config(I2C_Usage, I2C1, i2cSensors)
-#pragma config(Sensor, dgtl12, TankTogLED,     sensorDigitalOut)
-#pragma config(Sensor, I2C_1,  leftEncoder,    sensorQuadEncoderOnI2CPort,    , AutoAssign )
-#pragma config(Sensor, I2C_2,  rightEncoder,   sensorQuadEncoderOnI2CPort,    , AutoAssign )
+#pragma config(Sensor, I2C_1,  leftEncoder,    sensorQuadEncoderOnI2CPort,    , AutoAssign)
+#pragma config(Sensor, I2C_2,  rightEncoder,   sensorQuadEncoderOnI2CPort,    , AutoAssign)
 #pragma config(Motor,  port1,           LFPrimary,     tmotorVex393_HBridge, openLoop, reversed, driveLeft, encoderPort, I2C_2)
 #pragma config(Motor,  port2,           LFSecondary,   tmotorVex393_MC29, openLoop, reversed)
 #pragma config(Motor,  port3,           LMPrimary,     tmotorVex393_MC29, openLoop)
@@ -60,14 +59,11 @@ task usercontrol(){
 
 	//Motor-whine killer
 	for(int i = 0; i < 4; i++) {//Completly ANNIHALATES annoying motor whine (like a bug!)
-		if(fabs(vexRT[i]) > 15)
+		if(abs(vexRT[i]) > 15)
 			stick[i] = vexRT[i];
 		else
 			stick[i] = 0;
 	}
-
-	//LED if tank is on
-	SensorValue(TankTogLED) = tankTog;
 
 	//Driver-control
 	if (vexRT[Btn8D] && !btn8dLast)
