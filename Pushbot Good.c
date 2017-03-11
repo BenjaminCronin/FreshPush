@@ -39,7 +39,7 @@
 
 //Task pre-auton. Do Not Edit
 void pre_auton(){
-
+	LCDPreAuton();//Cycles for two seconds, with average battery level on line 1
 }
 
 
@@ -52,28 +52,28 @@ task autonomous(){
 
 //Task usercontrol
 task usercontrol(){
-	word btn8dLast;
-	bool tankTog = false;
+	word btn8dLast;//Used for toggling between tank and arcade
+	bool tankTog = false;//Boolian variable starting off as false: Used for toggling between tank and arcade.
 	int stick[4] = { 0, 0, 0, 0 };//Array for killing motor whine
 	while(true) {
 
 		//Motor-whine killer
 		for(int i = 0; i < 4; i++) {//Completly ANNIHALATES annoying motor whine (like a bug!)
-			if(abs(vexRT[i]) > 15)
+			if(abs(vexRT[i]) > 15)//If stick value is less than 15, the cortex will shut off the drive motors
 				stick[i] = vexRT[i];
 			else
 				stick[i] = 0;
 		}
 
 		//TankTog
-		if (vexRT[Btn8D] && !btn8dLast)
+		if (vexRT[Btn8D] && !btn8dLast)//If btn 8d is pressed, the variable tankTog will turn opposite
 			tankTog = !tankTog;
 		btn8dLast = vexRT[Btn8D];
 
 		//Driver-control
-		if(tankTog)
+		if(tankTog)//If btn 8d is pressed once, tankTog will be TRUE, and tank mode will be activated
 			tank(vexRT[Ch3], vexRT[Ch2]);
 		else
-			arcade(vexRT[Ch2], vexRT[Ch4]); //vroomVroom (usingProperCodingTechnics)
+			arcade(vexRT[Ch2], vexRT[Ch4]);//This is split arcade, with Ch2(forward-back) on the right side, and Ch4(turning) on the left.
 	}
 }
