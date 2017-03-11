@@ -24,7 +24,7 @@
 *******************************************
         __   ___  ______      ______
       /  /  /  / /  __  \   /   _   \
-     /  / /  /  /  /  |_|  /   / |  |
+     /  / /  /  /  / |_|   /   / |  |
     /  //  /   |  |___    /   /_/  /
    /     /     \___   \  /   ____ /
   /  /|  |   ___   \  | /   /
@@ -39,14 +39,14 @@
 
 //Task pre-auton. Do Not Edit
 void pre_auton(){
-	//LCDPreAuton();
+
 }
 
 
 
 //Task auton starts here
 task autonomous(){
-	auton();//Choose side for Auton
+	Auton();
 }
 
 
@@ -57,22 +57,23 @@ task usercontrol(){
 	int stick[4] = { 0, 0, 0, 0 };//Array for killing motor whine
 	while(true) {
 
-	//Motor-whine killer
-	for(int i = 0; i < 4; i++) {//Completly ANNIHALATES annoying motor whine (like a bug!)
-		if(abs(vexRT[i]) > 15)
-			stick[i] = vexRT[i];
+		//Motor-whine killer
+		for(int i = 0; i < 4; i++) {//Completly ANNIHALATES annoying motor whine (like a bug!)
+			if(abs(vexRT[i]) > 15)
+				stick[i] = vexRT[i];
+			else
+				stick[i] = 0;
+		}
+
+		//TankTog
+		if (vexRT[Btn8D] && !btn8dLast)
+			tankTog = !tankTog;
+		btn8dLast = vexRT[Btn8D];
+
+		//Driver-control
+		if(tankTog)
+			tank(vexRT[Ch3], vexRT[Ch2]);
 		else
-			stick[i] = 0;
-	}
-
-	//Driver-control
-	if (vexRT[Btn8D] && !btn8dLast)
-		tankTog = !tankTog;
-	btn8dLast = vexRT[Btn8D];
-
-	if(tankTog)
-		tank(vexRT[Ch3], vexRT[Ch2]);
-	else
-		arcade(vexRT[Ch2], vexRT[Ch4]); //vroomVroom (usingProperCodingTechnics)
+			arcade(vexRT[Ch2], vexRT[Ch4]); //vroomVroom (usingProperCodingTechnics)
 	}
 }
